@@ -16,7 +16,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="application.hostname" elementType="Argument">
             <stringProp name="Argument.name">application.hostname</stringProp>
-            <stringProp name="Argument.value">${__lowercase(${__P(application_hostname, your_jira_instance)})}</stringProp>
+            <stringProp name="Argument.value">jira-loadb-j48ewjv5z51d-1617510938.ap-southeast-1.elb.amazonaws.com</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="application.port" elementType="Argument">
@@ -272,7 +272,7 @@ props.put(&quot;project_pages&quot;, String.valueOf(pages));</stringProp>
             </elementProp>
             <elementProp name="perc_standalone_extension" elementType="Argument">
               <stringProp name="Argument.name">perc_standalone_extension</stringProp>
-              <stringProp name="Argument.value">${__P(perc_standalone_extension, 0)}</stringProp>
+              <stringProp name="Argument.value">${__P(perc_standalone_extension, 100)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -9301,7 +9301,7 @@ vars.put(&quot;random_page&quot;, String.valueOf(random_page));</stringProp>
               <boolProp name="resetInterpreter">false</boolProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
-              <stringProp name="script">vars.put(&quot;new_user_name&quot;, &quot;tango-${username}&quot;);</stringProp>
+              <stringProp name="script">vars.put(&quot;new_user_name&quot;, &quot;dc_${username}_${__threadNum}&quot;);</stringProp>
             </BeanShellPreProcessor>
             <hashTree/>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Websudo login" enabled="true">
