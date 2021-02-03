@@ -463,7 +463,7 @@ JMeterUtils.setProperty(&quot;c_AtlToken&quot; + user_counter, atl_token)
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="110 /rest/webResources/1.0/resources" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="110 /rest/webResources/1.0/resources" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -592,7 +592,7 @@ JMeterUtils.setProperty(&quot;c_AtlToken&quot; + user_counter, atl_token)
             </ResponseAssertion>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="120 /rest/webResources/1.0/resources" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="120 /rest/webResources/1.0/resources" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -652,7 +652,7 @@ JMeterUtils.setProperty(&quot;c_AtlToken&quot; + user_counter, atl_token)
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="125 /rest/webResources/1.0/resources" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="125 /rest/webResources/1.0/resources" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -712,7 +712,7 @@ JMeterUtils.setProperty(&quot;c_AtlToken&quot; + user_counter, atl_token)
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="130 /rest/webResources/1.0/resources" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="130 /rest/webResources/1.0/resources" enabled="true">
             <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
               <collectionProp name="Arguments.arguments">
@@ -772,7 +772,7 @@ JMeterUtils.setProperty(&quot;c_AtlToken&quot; + user_counter, atl_token)
             </HeaderManager>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="140 /rest/activity-stream/1.0/preferences" enabled="false">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="140 /rest/activity-stream/1.0/preferences" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="_" elementType="HTTPArgument">
@@ -2307,14 +2307,14 @@ vars.put(&quot;p_request_body&quot;, p_request_body.trim());
               </hashTree>
             </hashTree>
           </hashTree>
-          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="view_issue" enabled="true">
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="view_issue" enabled="false">
             <intProp name="ThroughputController.style">1</intProp>
             <boolProp name="ThroughputController.perThread">false</boolProp>
             <intProp name="ThroughputController.maxThroughput">1</intProp>
             <stringProp name="ThroughputController.percentThroughput">${perc_view_issue}</stringProp>
           </ThroughputController>
           <hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="jmeter_view_issue" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="jmeter_view_issue" enabled="false">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">true</boolProp>
             </TransactionController>
