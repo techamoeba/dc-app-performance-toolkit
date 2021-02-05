@@ -9304,7 +9304,7 @@ vars.put(&quot;random_page&quot;, String.valueOf(random_page));</stringProp>
               <stringProp name="script">vars.put(&quot;new_user_name&quot;, &quot;dc_${username}_${__threadNum}&quot;);</stringProp>
             </BeanShellPreProcessor>
             <hashTree/>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Websudo login" enabled="false">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Websudo login" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="webSudoPassword" elementType="HTTPArgument">
