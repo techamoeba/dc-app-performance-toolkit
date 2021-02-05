@@ -9346,7 +9346,7 @@ vars.put(&quot;random_page&quot;, String.valueOf(random_page));</stringProp>
               <stringProp name="TestPlan.comments">This action may not require on local host, you can disable it on local host</stringProp>
             </HTTPSamplerProxy>
             <hashTree/>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="fetch groups, members, projects" enabled="false">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="fetch groups, members, projects" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">true</boolProp>
               <stringProp name="TestPlan.comments">Test group listeners</stringProp>
@@ -9867,7 +9867,7 @@ vars.put(&quot;random_page&quot;, String.valueOf(random_page));</stringProp>
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="add user, update user, delete user" enabled="false">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="add user, update user, delete user" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">true</boolProp>
               <stringProp name="TestPlan.comments">Add user, automatically add user to upraise by adding it to team synched group. and then delete user</stringProp>
@@ -10201,7 +10201,7 @@ vars.put(&quot;random_page&quot;, String.valueOf(random_page));</stringProp>
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="fetch, resolve, unresolve issues" enabled="false">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="fetch, resolve, unresolve issues" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">true</boolProp>
               <stringProp name="TestPlan.comments">Add user, automatically add user to upraise by adding it to team synched group. and then delete user</stringProp>
