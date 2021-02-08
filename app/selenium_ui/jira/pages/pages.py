@@ -25,9 +25,9 @@ class Login(BasePage):
         self.wait_until_visible(LoginPageLocators.continue_button).send_keys(Keys.ESCAPE)
         self.get_element(LoginPageLocators.continue_button).click()
         self.wait_until_visible(LoginPageLocators.avatar_page_next_button).click()
-        self.wait_until_visible(LoginPageLocators.explore_current_projects).click()
+        # self.wait_until_visible(LoginPageLocators.explore_current_projects).click()
         self.go_to_url(DashboardLocators.dashboard_url)
-        self.wait_until_visible(DashboardLocators.dashboard_window)
+        # self.wait_until_visible(DashboardLocators.dashboard_window)
 
     def set_credentials(self, username, password):
         self.get_element(LoginPageLocators.login_field).send_keys(username)
