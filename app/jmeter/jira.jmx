@@ -10086,7 +10086,7 @@ vars.put(&quot;random_page&quot;, String.valueOf(random_page));</stringProp>
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="add_update_delete_user" enabled="false">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="add_update_delete_user" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">true</boolProp>
               <stringProp name="TestPlan.comments">Add user, automatically add user to upraise by adding it to team synched group. and then delete user</stringProp>
