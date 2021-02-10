@@ -9836,7 +9836,7 @@ vars.put(&quot;random_page&quot;, String.valueOf(random_page));</stringProp>
               </hashTree>
             </hashTree>
             <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
-              <stringProp name="IfController.condition">${__threadNum}%10==0</stringProp>
+              <stringProp name="IfController.condition">${__threadNum}%15==0</stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
