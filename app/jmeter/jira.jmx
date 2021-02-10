@@ -9302,10 +9302,10 @@ vars.put(&quot;random_page&quot;, String.valueOf(random_page));</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">vars.put(&quot;new_user_name&quot;, &quot;dc_${username}_${__threadNum}&quot;);
-vars.put(&quot;is_available&quot;, (${__threadNum}%2 == 0));</stringProp>
+vars.put(&quot;is_available&quot;, (${__threadNum} % 2 == 0));</stringProp>
             </BeanShellPreProcessor>
             <hashTree/>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1. find_group, get_project, get_user" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1. find_group, get_project, get_user ${is_available} ${__threadNum}" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">true</boolProp>
               <stringProp name="TestPlan.comments">Test group listeners</stringProp>
@@ -9831,7 +9831,7 @@ vars.put(&quot;is_available&quot;, (${__threadNum}%2 == 0));</stringProp>
               </hashTree>
             </hashTree>
             <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
-              <stringProp name="IfController.condition">${__groovy((&quot;${x_issue_ids}&quot;) != &quot;&quot;)}</stringProp>
+              <stringProp name="IfController.condition"></stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
@@ -10367,7 +10367,7 @@ vars.put(&quot;is_available&quot;, (${__threadNum}%2 == 0));</stringProp>
               </hashTree>
             </hashTree>
           </hashTree>
-          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
             <boolProp name="displayJMeterProperties">false</boolProp>
             <boolProp name="displayJMeterVariables">true</boolProp>
             <boolProp name="displaySystemProperties">false</boolProp>
