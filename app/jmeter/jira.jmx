@@ -9302,11 +9302,11 @@ vars.put(&quot;random_page&quot;, String.valueOf(random_page));</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">vars.put(&quot;new_user_name&quot;, &quot;dc_${username}_${__threadNum}&quot;);
-int subthread = ${__threadNum} % 3;
+int subthread = ${__threadNum} % 10;
 vars.put(&quot;is_available&quot;, String.valueOf(subthread));</stringProp>
             </BeanShellPreProcessor>
             <hashTree/>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1. find_group, get_project, get_user ${is_available} ${__threadNum}" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1. find_group, get_project, get_user" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">true</boolProp>
               <stringProp name="TestPlan.comments">Test group listeners</stringProp>
