@@ -9302,8 +9302,9 @@ vars.put(&quot;random_page&quot;, String.valueOf(random_page));</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">vars.put(&quot;new_user_name&quot;, &quot;dc_${username}_${__threadNum}&quot;);
-int subthread = ${__threadNum} % 10;
-vars.put(&quot;is_available&quot;, String.valueOf(subthread));</stringProp>
+int subthread = ${__threadNum} % 30;
+vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
+</stringProp>
             </BeanShellPreProcessor>
             <hashTree/>
             <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1. find_group, get_project, get_user" enabled="true">
@@ -9845,7 +9846,7 @@ vars.put(&quot;is_available&quot;, String.valueOf(subthread));</stringProp>
               </hashTree>
             </hashTree>
             <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
-              <stringProp name="IfController.condition">${__groovy(&quot;${is_available}&quot; == &quot;0&quot;)}</stringProp>
+              <stringProp name="IfController.condition">${__groovy(&quot;${send_resolve_request}&quot; == &quot;0&quot;)}</stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
