@@ -9844,7 +9844,7 @@ vars.put(&quot;is_available&quot;, String.valueOf(subthread));</stringProp>
                 </hashTree>
               </hashTree>
             </hashTree>
-            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="false">
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
               <stringProp name="IfController.condition">${__groovy(&quot;${is_available}&quot; == &quot;0&quot;)}</stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">true</boolProp>
