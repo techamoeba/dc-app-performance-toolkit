@@ -26,14 +26,14 @@ settings:
     view_issue: 43
     view_project_summary: 4
     view_dashboard: 12
-    edit_issue: 4
+    edit_issue: 3
     add_comment: 2
     browse_projects: 4
     view_scrum_board: 3
     view_kanban_board: 3
     view_backlog: 6
     browse_boards: 2
-    standalone_extension: 0 # By default disabled
+    standalone_extension: 1 # By default disabled
     # Custom dataset section.
     custom_dataset_query: project = "Dc testing" AND summary ~ "DCIssue*" ORDER BY id ASC         # Write JQL query to add JQL output to the app/datasets/jira/custom-issues.csv, e.g. "summary ~ 'AppIssue*'"
 services:
