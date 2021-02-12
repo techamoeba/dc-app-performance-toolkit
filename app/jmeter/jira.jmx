@@ -9302,10 +9302,19 @@ vars.put(&quot;random_page&quot;, String.valueOf(random_page));</stringProp>
               <stringProp name="parameters"></stringProp>
               <stringProp name="filename"></stringProp>
               <stringProp name="script">vars.put(&quot;new_user_name&quot;, &quot;dc_${username}_${__threadNum}&quot;);
-int subthread = ${__threadNum} % 30;
+int subthread = ${__threadNum} % 20;
 vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
 </stringProp>
             </BeanShellPreProcessor>
+            <hashTree/>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Request Counter" enabled="true">
+              <stringProp name="CounterConfig.start">1</stringProp>
+              <stringProp name="CounterConfig.end"></stringProp>
+              <stringProp name="CounterConfig.incr">1</stringProp>
+              <stringProp name="CounterConfig.name">request_counter</stringProp>
+              <stringProp name="CounterConfig.format"></stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
             <hashTree/>
             <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1. find_group, get_project, get_user" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
@@ -9846,7 +9855,7 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
               </hashTree>
             </hashTree>
             <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
-              <stringProp name="IfController.condition">${__groovy(&quot;${send_resolve_request}&quot; == &quot;0&quot;)}</stringProp>
+              <stringProp name="IfController.condition">${__groovy(String.valueOf(${request_counter} % 25) == &quot;0&quot;)}</stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
@@ -10102,7 +10111,7 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
                   <hashTree/>
                 </hashTree>
               </hashTree>
-              <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="5. add_update_delete_user" enabled="true">
+              <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="4. add_update_delete_user" enabled="true">
                 <boolProp name="TransactionController.includeTimers">false</boolProp>
                 <boolProp name="TransactionController.parent">true</boolProp>
                 <stringProp name="TestPlan.comments">Add user, automatically add user to upraise by adding it to team synched group. and then delete user</stringProp>
@@ -10381,6 +10390,17 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
                 </hashTree>
               </hashTree>
             </hashTree>
+            <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="false">
+              <intProp name="ThroughputController.style">1</intProp>
+              <boolProp name="ThroughputController.perThread">false</boolProp>
+              <intProp name="ThroughputController.maxThroughput">10</intProp>
+              <FloatProperty>
+                <name>ThroughputController.percentThroughput</name>
+                <value>10.0</value>
+                <savedValue>0.0</savedValue>
+              </FloatProperty>
+            </ThroughputController>
+            <hashTree/>
           </hashTree>
           <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
             <boolProp name="displayJMeterProperties">false</boolProp>
