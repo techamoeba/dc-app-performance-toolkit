@@ -16,7 +16,7 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="application.hostname" elementType="Argument">
             <stringProp name="Argument.name">application.hostname</stringProp>
-            <stringProp name="Argument.value">jira-loadb-j48ewjv5z51d-1617510938.ap-southeast-1.elb.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">${__lowercase(${__P(application_hostname, your_jira_instance)})}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="application.port" elementType="Argument">
