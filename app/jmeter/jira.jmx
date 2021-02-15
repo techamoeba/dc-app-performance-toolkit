@@ -9499,7 +9499,7 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2. fetch_issue, resolve_unresolve_issue" enabled="false">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2. fetch_issue, resolve_unresolve_issue" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">true</boolProp>
               <stringProp name="TestPlan.comments">Add user, automatically add user to upraise by adding it to team synched group. and then delete user</stringProp>
@@ -9854,7 +9854,7 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
                 </hashTree>
               </hashTree>
             </hashTree>
-            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="false">
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
               <stringProp name="IfController.condition">${__groovy(String.valueOf(${request_counter} % 25) == &quot;0&quot;)}</stringProp>
               <boolProp name="IfController.evaluateAll">false</boolProp>
               <boolProp name="IfController.useExpression">true</boolProp>
