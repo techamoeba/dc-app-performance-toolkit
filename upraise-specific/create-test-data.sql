@@ -370,7 +370,7 @@ CREATE OR REPLACE FUNCTION createObj(title varchar(255), message text, objType i
 			USING labelIds[randomNum], objId;
 		END IF;
 		-- create Krs
-		PERFORM createKr(objId, ownerId::int, ownerDispName, endDate, projectKeys, projectIds, maxissues, baseUrl, prefix);
+		PERFORM createKr(objId, ownerId::int, ownerDispName, startDate, endDate, projectKeys, projectIds, maxissues, baseUrl, prefix);
 		RETURN objId;
 	END;
 $$ LANGUAGE plpgsql;
@@ -388,8 +388,9 @@ CREATE OR REPLACE FUNCTION createObjHistory(userId int, objId int, krId int, act
 	END;
 $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION createKr(objId int, ownerId int, ownerDispName varchar(255), 
-	dueDate timestamp without time zone, projectKeys varchar(255)[], projectIds numeric[], 
+CREATE OR REPLACE FUNCTION createKr(objId int, ownerId int, ownerDispName varchar(255),
+    startDate timestamp without time zone, 	dueDate timestamp without time zone, 
+	projectKeys varchar(255)[], projectIds numeric[], 
 	maxissues numeric[], baseUrl text, prefix varchar(255)) RETURNS void AS $$
 	DECLARE
 		noOfKrs int;
@@ -478,11 +479,11 @@ CREATE OR REPLACE FUNCTION createKr(objId int, ownerId int, ownerDispName varcha
 				EXECUTE
 					'INSERT INTO "'||prefix||'UP_OBJ_KEY_RESULTS" ("TITLE", "OBJECTIVE_ID", "OKR_TYPE", "IS_DELETED", 
 						"ORIGINAL_VALUE", "CURRENT_VALUE", "TARGET_VALUE", "WEIGHTAGE", "ISSUE_ID", "ISSUE_DETAILS", 
-						"INDEX_NUMBER", "OWNER_ID", "DUE_DATE", "CONF_STATUS", "REMINDER_FREQUENCY", 
+						"INDEX_NUMBER", "OWNER_ID", "START_DATE", "DUE_DATE", "CONF_STATUS", "REMINDER_FREQUENCY", "PROGRESS_PERCENTAGE",
 						"CREATED", "CREATED_BY", "MODIFIED", "MODIFIED_BY") 
-					VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19)'
+					VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21)'
 				USING krTitle, objId, krType, false, 0, 0, targetVal, 5, issueId, issueDetails, 
-					indexNum, krOwnerId, dueDate, 4, 0, now(), 'System', now(), 'System';
+					indexNum, krOwnerId, startDate, dueDate, 4, 0, 0, now(), 'System', now(), 'System';
 				EXECUTE 'SELECT CURRVAL(''"'||prefix||'UP_OBJ_KEY_RESULTS_ID_seq"'')' INTO krId;
 				-- create kr history
 				historyJson := '{"value":[{"field":"id","new":"'||krId||'"}';
@@ -602,10 +603,10 @@ CREATE OR REPLACE FUNCTION createActions(userId int, krId int, projectKeys varch
 				EXECUTE
 					'INSERT INTO "'||prefix||'UP_OBJ_KR_ACTIONS" ("TITLE", "ISSUE_ID", "ISSUE_DETAILS", 
 						"ACTION_TYPE", "KEY_RESULT_ID", "OWNER_ID", "DUE_DATE", "IS_DELETED",
-						"CREATED", "CREATED_BY", "MODIFIED", "MODIFIED_BY")
-					VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)'
+						"PROGRESS_PERCENTAGE", "CREATED", "CREATED_BY", "MODIFIED", "MODIFIED_BY")
+					VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)'
 				USING projectKey || '-' || issue.issuenum, issue.id, issueDetails, 0, krId, ownerId, 
-					issue.dueDate, false, now(), 'System', now(), 'System';
+					issue.dueDate, false, 0, now(), 'System', now(), 'System';
 				EXECUTE 'SELECT CURRVAL(''"'||prefix||'UP_OBJ_KR_ACTIONS_ID_seq"'')' INTO actionId;
 				-- create kr action history
 				historyJson := '{"value":[{"field":"id","new":"'||actionId||'"}';
@@ -1156,7 +1157,7 @@ BEGIN
 		projectKeys varchar(255)[], projectIds numeric[], maxissues numeric[], baseUrl text, prefix varchar(255));
 	DROP FUNCTION createObjHistory(userId int, objId int, krId int, action varchar(1), hisType int,
 		historyJson text, prefix varchar(255));
-	DROP FUNCTION createKr(objId int, ownerId int, ownerDispName varchar(255), 
+	DROP FUNCTION createKr(objId int, ownerId int, ownerDispName varchar(255), startDate timestamp without time zone, 
 		dueDate timestamp without time zone, projectKeys varchar(255)[], projectIds numeric[], 
 		maxissues numeric[], baseUrl text, prefix varchar(255));
 	DROP FUNCTION getIdFromKey(assignee varchar(255), prefix varchar(255));
