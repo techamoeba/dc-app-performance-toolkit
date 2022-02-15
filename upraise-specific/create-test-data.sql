@@ -1127,17 +1127,17 @@ DECLARE
 	prefix varchar(255); -- table name prefix of app
 BEGIN
 	importUsers := false;
-	teams := 1;
+	teams := 10;
 	companyObj := 0;
 	teamObjTeams := 0;
 	teamObjPerTeam := 0;
 	indObjUsers := 0;
 	indObjPerUser := 0;
-	feedbackUsers := 0;
-	feedbackPerUser := 0;
-	templates := 0;
-	distributionPerTemplate := 0;
-	usersPerDistribution := 0;
+	feedbackUsers := 10;
+	feedbackPerUser := 5;
+	templates := 10;
+	distributionPerTemplate := 5;
+	usersPerDistribution := 10;
 	baseUrl := 'jira-loadb-juhhjxnx2sbi-1098857040.us-west-1.elb.amazonaws.com';
 	prefix := 'AO_EB0AB3_';
 	PERFORM generateData(importUsers, teams, companyObj, teamObjTeams, teamObjPerTeam,
