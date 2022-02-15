@@ -9147,7 +9147,7 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
               <boolProp name="CounterConfig.per_user">false</boolProp>
             </CounterConfig>
             <hashTree/>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1. find_group, get_project, get_user" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Upraise find_group, get_project, get_user" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">true</boolProp>
               <stringProp name="TestPlan.comments">Test group listeners</stringProp>
@@ -9330,7 +9330,7 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
                 <hashTree/>
               </hashTree>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2. fetch_issue, resolve_unresolve_issue" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Upraise fetch_issue, resolve_unresolve_issue" enabled="true">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <boolProp name="TransactionController.parent">true</boolProp>
               <stringProp name="TestPlan.comments">Add user, automatically add user to upraise by adding it to team synched group. and then delete user</stringProp>
@@ -9691,7 +9691,7 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
               <boolProp name="IfController.useExpression">true</boolProp>
             </IfController>
             <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="3. Websudo login" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Upraise Websudo login" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="webSudoPassword" elementType="HTTPArgument">
@@ -9942,7 +9942,7 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
                   <hashTree/>
                 </hashTree>
               </hashTree>
-              <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="4. add_update_delete_user" enabled="true">
+              <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Upraise add_update_delete_user" enabled="true">
                 <boolProp name="TransactionController.includeTimers">false</boolProp>
                 <boolProp name="TransactionController.parent">true</boolProp>
                 <stringProp name="TestPlan.comments">Add user, automatically add user to upraise by adding it to team synched group. and then delete user</stringProp>
