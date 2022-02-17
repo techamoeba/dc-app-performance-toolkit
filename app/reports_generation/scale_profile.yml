@@ -7,10 +7,10 @@ runs:
     fullPath: "/home/ubuntu/dc-app-performance-toolkit/app/results/jira/2022-02-16_11-05-13"
   - runName: "2 Nodes"
     runType: "experiment"
-    fullPath: "/home/ubuntu/dc-app-performance-toolkit/app/results/jira/2022-02-17_10-36-35"
+    fullPath: "/home/ubuntu/dc-app-performance-toolkit/app/results/jira/2022-02-17_18-48-38"
   - runName: "4 Nodes"
     runType: "experiment"
-    fullPath: "/home/ubuntu/dc-app-performance-toolkit/app/results/jira/2022-02-17_13-18-20"
+    fullPath: "/home/ubuntu/dc-app-performance-toolkit/app/results/jira/2022-02-17_20-33-51"
 
 # Chart generation configs
 index_col: "Action"
