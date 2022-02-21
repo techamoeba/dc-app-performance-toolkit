@@ -7,7 +7,7 @@ from prepare_data_common import __generate_random_string, __write_to_file
 from util.api.jira_clients import JiraRestClient
 from util.conf import JIRA_SETTINGS
 from util.project_paths import JIRA_DATASET_JQLS, JIRA_DATASET_SCRUM_BOARDS, JIRA_DATASET_KANBAN_BOARDS, \
-    JIRA_DATASET_USERS, JIRA_DATASET_ISSUES, JIRA_DATASET_PROJECTS, JIRA_DATASET_CUSTOM_ISSUES
+    JIRA_DATASET_USERS, JIRA_DATASET_ISSUES, JIRA_DATASET_PROJECTS, JIRA_DATASET_VERSIONS, JIRA_DATASET_CUSTOM_ISSUES
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -18,6 +18,7 @@ ISSUES = "issues"
 JQLS = "jqls"
 PROJECTS = "projects"
 CUSTOM_ISSUES = "custom_issues"
+VERSIONS = "versions"
 
 DEFAULT_USER_PASSWORD = 'password'
 DEFAULT_USER_PREFIX = 'performance_'
@@ -81,6 +82,9 @@ def write_test_data_to_files(datasets):
     keys = datasets[PROJECTS]
     __write_to_file(JIRA_DATASET_PROJECTS, keys)
 
+    versions = datasets[VERSIONS]
+    __write_to_file(JIRA_DATASET_VERSIONS, versions)
+
 
 def __create_data_set(jira_api):
     dataset = dict()
@@ -94,6 +98,7 @@ def __create_data_set(jira_api):
     dataset[SCRUM_BOARDS] = __get_boards(perf_user_api, 'scrum')
     dataset[KANBAN_BOARDS] = __get_boards(perf_user_api, 'kanban')
     dataset[JQLS] = __generate_jqls(count=150)
+    dataset[VERSIONS] = __get_project_versions(perf_user_api)
     print(f'Users count: {len(dataset[USERS])}')
     print(f'Projects: {len(dataset[PROJECTS])}')
     print(f'Issues count: {len(dataset[ISSUES])}')
@@ -102,6 +107,7 @@ def __create_data_set(jira_api):
     print(f'Jqls count: {len(dataset[JQLS])}')
     print('------------------------')
     print(f'Custom dataset issues: {len(dataset[CUSTOM_ISSUES])}')
+    print(f'Versions count: {len(dataset[VERSIONS])}')
 
     return dataset
 
@@ -155,6 +161,19 @@ def __get_software_projects(jira_api):
         raise SystemExit(
             f"There are no software projects in Jira accessible by a random performance user: {jira_api.user}")
     return software_projects
+
+def __get_project_versions(jira_api):
+    all_versions = jira_api.get_all_versions()
+    project_versions = \
+        [f"{version['id']}" for version in all_versions if version['released'] == False and
+         version['archived'] == False and
+         (("startDate" not in version) or
+          ("startDate" in version and datetime.datetime.strptime(version['startDate'], "%Y-%m-%d") <= datetime.datetime.now()))
+         ]
+    if not project_versions:
+        raise SystemExit(
+            f"There are no unreleased versions available across projects")
+    return project_versions
 
 
 def __check_current_language(jira_api):

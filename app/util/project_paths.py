@@ -102,6 +102,7 @@ JIRA_DATASET_USERS = __get_jira_dataset('users.csv')
 JIRA_DATASET_ISSUES = __get_jira_dataset('issues.csv')
 JIRA_DATASET_PROJECTS = __get_jira_dataset('projects.csv')
 JIRA_DATASET_CUSTOM_ISSUES = __get_jira_dataset('custom-issues.csv')
+JIRA_DATASET_VERSIONS = __get_jira_dataset('versions.csv')
 
 JSM_YML = __get_jsm_yml()
 JSM_DATASETS = __get_jsm_datasets()

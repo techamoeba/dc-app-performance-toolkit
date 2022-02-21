@@ -166,6 +166,23 @@ class JiraRestClient(RestClient):
 
         return response.json()
 
+    def get_all_versions(self):
+        """
+        :return: Returns all versions
+        """
+        api_url = f'{self.host}/rest/api/2/project'
+        response = self.get(api_url, 'Could not get the list of projects')
+        projects = response.json()
+        all_versions = []
+        for project in projects:
+            projectId = project["id"]
+            version_api_url = f'{self.host}/rest/api/2/project/{projectId}/versions'
+            version_response = self.get(version_api_url, 'Could not get the list of versions')
+            versions = version_response.json()
+            all_versions = all_versions + versions
+
+        return all_versions
+
     def get_server_info(self):
         api_url = f'{self.host}/rest/api/2/serverInfo'
         response = self.get(api_url, 'Could not get the server information')
