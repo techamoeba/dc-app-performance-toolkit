@@ -10323,7 +10323,7 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
                 <stringProp name="HTTPSampler.port"></stringProp>
                 <stringProp name="HTTPSampler.protocol"></stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${application.postfix}/rest/upraisepeople/latest/directory/users/get-all</stringProp>
+                <stringProp name="HTTPSampler.path">${application.postfix}/rest/${app.endpoint.alias}/latest/directory/users/get-all</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -10659,7 +10659,7 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
                 <stringProp name="HTTPSampler.port"></stringProp>
                 <stringProp name="HTTPSampler.protocol"></stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${application.postfix}/rest/upraisepeople/latest/leave/applications</stringProp>
+                <stringProp name="HTTPSampler.path">${application.postfix}/rest/${app.endpoint.alias}/latest/leave/applications</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
