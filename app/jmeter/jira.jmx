@@ -9131,7 +9131,7 @@ if ( sleep_time &gt; 0 ) {
               <collectionProp name="Arguments.arguments">
                 <elementProp name="app.endpoint.alias" elementType="Argument">
                   <stringProp name="Argument.name">app.endpoint.alias</stringProp>
-                  <stringProp name="Argument.value">upraisepeople</stringProp>
+                  <stringProp name="Argument.value">upraise</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <stringProp name="Argument.desc">Specified in application.json/atlassian-plugin.xml (rest)   1. upraise (EG) 2. upraisesuccess (ES) 3. upraisepeople (People)</stringProp>
                 </elementProp>
@@ -10440,7 +10440,7 @@ vars.put(&quot;send_resolve_request&quot;, String.valueOf(subthread));
               </HTTPSamplerProxy>
               <hashTree/>
             </hashTree>
-            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Upraise get okrs" enabled="true">
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Upraise get okrs" enabled="false">
               <boolProp name="TransactionController.includeTimers">false</boolProp>
               <stringProp name="TestPlan.comments">Test okr  listing</stringProp>
               <boolProp name="TransactionController.parent">true</boolProp>
