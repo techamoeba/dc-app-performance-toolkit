@@ -4,13 +4,13 @@ runs:
   # fullPath should contain a full path to the directory with run results. E.g. /home/$USER/dc-app-performance-toolkit/jira/results/2019-08-06_18-41-08
   - runName: "1 Node"
     runType: "baseline"
-    fullPath: "/home/ubuntu/dc-app-performance-toolkit/app/results/jira/2022-04-01_10-56-20"
+    fullPath: "/home/ubuntu/dc-app-performance-toolkit/app/results/jira/2022-04-02_18-54-06"
   - runName: "2 Nodes"
     runType: "experiment"
-    fullPath: "/home/ubuntu/dc-app-performance-toolkit/app/results/jira/2022-04-01_14-39-06"
+    fullPath: "/home/ubuntu/dc-app-performance-toolkit/app/results/jira/2022-04-03_07-48-58"
   - runName: "4 Nodes"
     runType: "experiment"
-    fullPath: "/home/ubuntu/dc-app-performance-toolkit/app/results/jira/2022-04-01_16-24-01"
+    fullPath: "/home/ubuntu/dc-app-performance-toolkit/app/results/jira/2022-04-03_09-39-55"
 
 # Chart generation configs
 index_col: "Action"
