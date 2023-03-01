@@ -125,8 +125,8 @@ CREATE OR REPLACE FUNCTION createTeams(teams int, prefix varchar(255)) RETURNS v
 					"MODIFIED", "MODIFIED_BY") VALUES ($1, $2, $3, $4, $5, $6)'
 				USING 'Test Team - '||i, false, now(), 'System', now(), 'System';
 				EXECUTE 'SELECT CURRVAL(''"'||prefix||'UP_TEAMS_ID_seq"'')' INTO teamId;
-				-- add randomly max 10 team members
-				SELECT FLOOR(random() * (10-1 + 1) + 1)::int INTO maxResults;
+				-- add randomly max 100 team members
+				SELECT FLOOR(random() * (100-1 + 1) + 1)::int INTO maxResults;
 				SELECT FLOOR(random() * ((uCount-1)-0 + 1) + 0)::int INTO startAt;
 				FOR userId IN 
 					EXECUTE 
@@ -1127,18 +1127,18 @@ DECLARE
 	prefix varchar(255); -- table name prefix of app
 BEGIN
 	importUsers := false;
-	teams := 10;
+	teams := 100;
 	companyObj := 0;
 	teamObjTeams := 0;
 	teamObjPerTeam := 0;
 	indObjUsers := 0;
 	indObjPerUser := 0;
-	feedbackUsers := 10;
+	feedbackUsers := 1000;
 	feedbackPerUser := 5;
 	templates := 10;
-	distributionPerTemplate := 5;
-	usersPerDistribution := 10;
-	baseUrl := 'jira-loadb-juhhjxnx2sbi-1098857040.us-west-1.elb.amazonaws.com';
+	distributionPerTemplate := 100;
+	usersPerDistribution := 100;
+	baseUrl := 'jira-loadb-1tk8lyco88gn2-204659564.us-east-1.elb.amazonaws.com';
 	prefix := 'AO_EB0AB3_';
 	PERFORM generateData(importUsers, teams, companyObj, teamObjTeams, teamObjPerTeam,
 		indObjUsers, indObjPerUser, feedbackUsers, feedbackPerUser, baseUrl, templates, distributionPerTemplate, usersPerDistribution, prefix);
