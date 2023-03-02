@@ -125,8 +125,8 @@ CREATE OR REPLACE FUNCTION createTeams(teams int, prefix varchar(255)) RETURNS v
 					"MODIFIED", "MODIFIED_BY") VALUES ($1, $2, $3, $4, $5, $6)'
 				USING 'Test Team - '||i, false, now(), 'System', now(), 'System';
 				EXECUTE 'SELECT CURRVAL(''"'||prefix||'UP_TEAMS_ID_seq"'')' INTO teamId;
-				-- add randomly max 100 team members
-				SELECT FLOOR(random() * (100-1 + 1) + 1)::int INTO maxResults;
+				-- add randomly max 20 team members
+				SELECT FLOOR(random() * (20-1 + 1) + 1)::int INTO maxResults;
 				SELECT FLOOR(random() * ((uCount-1)-0 + 1) + 0)::int INTO startAt;
 				FOR userId IN 
 					EXECUTE 
@@ -860,6 +860,7 @@ CREATE OR REPLACE FUNCTION createFormFields(formId int, prefix varchar(255)) RET
 		sequenceNo int;
 	BEGIN
 		IF formId > 0 THEN 
+			RAISE NOTICE 'Create form fields for formId = %', formId;
 			section := 1;
 			sequenceNo := 1;
 			fieldType := 'SectionStart';
@@ -994,7 +995,7 @@ AS $$
 	BEGIN
 		IF distributionPerTemplate > 0 THEN 
 			FOR i IN 1..distributionPerTemplate LOOP
-				RAISE NOTICE 'creat distribution = %', i;
+				RAISE NOTICE 'Creat distribution = % for formId = %', i, formId;
 				EXECUTE 'INSERT INTO "'||prefix||'UP_FRM_DIST" ("IS_RESPONSE_VIEW", 
 				"IS_VIEW_PERMISSION", "REVIEW_PERIOD_END", "REVIEW_PERIOD_START", "SCHEDULE_DATE", 
 				"START_DATE", "VIEW_PERMISSION", "DESCRIPTION", "REASON_FOR_ARCHIVAL",
@@ -1092,17 +1093,14 @@ CREATE OR REPLACE FUNCTION createFormTemplates(templates int, prefix varchar(255
 					'{"en":{"name":"Appraisal Form","description":"{\"version\":1,\"type\":\"doc\",\"content\":[{\"type\":\"paragraph\",\"content\":[{\"type\":\"text\",\"text\":\"this is appraisal form\"}]}]}","otherSettings":{"INCLUDE_OBJECTIVES":{"show":false,"label":"Include Objectives","value":true},"SHOW_FEEDBACK_TAB":{"show":true,"label":"Show Feedback Tab","value":true},"SHOW_ISSUES_TAB":{"show":true,"label":"Show Issues Tab","value":true},"SHOW_NOTES_TAB":{"show":false,"label":"Show Notes Tab","value":true},"scores":[{"section":2,"score":45.0,"weightage":10.0,"groupScores":[{"group":1,"score":80.0,"weightage":20.0,"groupWeightage":5.0}]},{"section":3,"score":45.0,"weightage":10.0,"groupScores":[{"group":1,"score":80.0,"weightage":20.0,"groupWeightage":5.0}]},{"section":4,"score":65.0,"weightage":15.0},{"section":5,"score":50.0,"weightage":10.0}]},"classes":["leftAlign"],"heading":"h1","styles":{"fontFamily":"-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen, Ubuntu, \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif","fontSize":"16","fontStyles":[1,0,0]}},"styles":{"color":"rgb(0, 0, 0)","backgroundColor":"rgba(0, 0, 0, 0)"}}',
 					0, 3;
 				EXECUTE 'SELECT CURRVAL(''"'||prefix||'UP_FRM_FORM_ID_seq"'')' INTO templateFormId;
-
+				-- create form fields	
+				PERFORM createFormFields(templateFormId, prefix);
+				
 				IF distributionPerTemplate > 0 THEN
-					FOR i IN 1..distributionPerTemplate LOOP
-					RAISE NOTICE 'Template number = %', i;
-					-- create form fields	
-					PERFORM createFormFields(templateFormId, prefix);
+					RAISE NOTICE 'Template number = %, templateFormId = %', i, templateFormId;
 					-- create distribution for templates
 					PERFORM createDistributions(templateFormId, prefix , distributionPerTemplate , usersPerDistribution);
-					END LOOP;
 				END IF;
-
 			END LOOP;
 		END IF;
 	END;
@@ -1133,10 +1131,10 @@ BEGIN
 	teamObjPerTeam := 0;
 	indObjUsers := 0;
 	indObjPerUser := 0;
-	feedbackUsers := 1000;
+	feedbackUsers := 5000;
 	feedbackPerUser := 5;
-	templates := 10;
-	distributionPerTemplate := 100;
+	templates := 20;
+	distributionPerTemplate := 50;
 	usersPerDistribution := 100;
 	baseUrl := 'jira-loadb-1tk8lyco88gn2-204659564.us-east-1.elb.amazonaws.com';
 	prefix := 'AO_EB0AB3_';
