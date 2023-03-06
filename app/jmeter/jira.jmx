@@ -9632,7 +9632,7 @@ if ( sleep_time &gt; 0 ) {
               <collectionProp name="Arguments.arguments">
                 <elementProp name="app.endpoint.alias" elementType="Argument">
                   <stringProp name="Argument.name">app.endpoint.alias</stringProp>
-                  <stringProp name="Argument.value">upraisesuccess</stringProp>
+                  <stringProp name="Argument.value">upraisepeople</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <stringProp name="Argument.desc">Specified in application.json/atlassian-plugin.xml (rest)   1. upraise (EG) 2. upraisesuccess (ES) 3. upraisepeople (People)</stringProp>
                 </elementProp>
