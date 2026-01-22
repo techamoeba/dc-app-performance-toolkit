@@ -11,20 +11,20 @@
 # This value can not be altered after the configuration has been applied.
 # Only lowercase letters, numbers, dashes, and dots are allowed.
 # ! REQUIRED !
-environment_name = "dcapt-product"
+environment_name = "dcapt-jira-large"
 
 # Supported products: jira, confluence, bitbucket, crowd and bamboo.
 # For JSM set product as jira.
 # e.g.: products = ["jira"]
 # ! REQUIRED !
-products = ["product-to-deploy"]
+products = ["jira"]
 
 # License
 # To avoid storing license in a plain text file, we recommend storing it in an environment variable prefixed with `TF_VAR_` (i.e. `TF_VAR_jira_license`) and keep the below line commented out
 # If storing license as plain-text is not a concern for this environment, feel free to uncomment the following line and supply the license here.
 # ! IMPORTANT ! Please make sure valid license is used without spaces and new line symbols.
 # ! REQUIRED !
-jira_license = "jira-license"
+jira_license = "AAAB1w0ODAoPeNqVUtGOmkAUfecrSPrSPmAAF1dNJqkLY8sG0IJt3MSXK17X6coMmQFc/34BNdpqTfo4Z2bOuefc8ykUXH8GrpuObneHljV86OluMtNt0+5prkQomOAeFEgaxDAtw+xpAUuRK5ztc4wgQ+JOwpDGrj8KtN9MQud4T1es+U1oNKPxNPYTqkVltkQ5Wf9UKBUxrBMVfc+Z3F/o2IbpHMhyKVZlWnSag6HEutiBxA6kBauQFLJELSmXKpUsb8VahFawLeF8bolqdnCRFygP4PYg/R3UhoTuzh27fraL+oGoNgqmZVF5zjx3xyt4e3dGm/jBGXgv4ydfZhXMvR9TXiUDkXtzuhwtyIKcnPgeCXwvoZER2FbXsk3n8Z6PpADZTLSGraqdoKxQ1hRP8zqBwcvEMvyo3zOCifNNe8P9rzq1xpTVM81Hs9/tWtqrROQbkeco7+Q+LWW6AYV/b/LydxtNLpk6xUoj8qePG1q3OuDheR3PfjzSk6Nb/XOzA/2whC+LoX7ekxYCq1EOPP3/Mly16nLQy6bc4fhHO06J29pEvgJn6tAqJUq5h6+QCVwKtlKdVGSaK3hRq9Hayvb2i1b/atoWvRrzTsBHoRa+qfMBfoJS/DAsAhQOh+T920ap7I3x0AQyWZgWaJvjUQIUWqk5dn3QCoMHx2+Lq3KwEswLPLY=X02me"
 confluence_license = "confluence-license"
 bitbucket_license = "bitbucket-license"
 crowd_license = "crowd-license"
@@ -87,10 +87,10 @@ max_cluster_capacity = 6
 # Create a docker-in-docker privileged container as execution environment pod
 
 start_test_deployment = "true"
-test_deployment_cpu_request = "3"
-test_deployment_cpu_limit = "4"
-test_deployment_mem_request = "8Gi"
-test_deployment_mem_limit = "8Gi"
+test_deployment_cpu_request = "7"
+test_deployment_cpu_limit = "8"
+test_deployment_mem_request = "14Gi"
+test_deployment_mem_limit = "16Gi"
 
 ################################################################################
 # Jira/JSM Settings
